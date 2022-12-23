@@ -1,0 +1,17 @@
+#cuadroDeCompras{display:flex;
+flex-wrap: nowrap;
+justify-items: left;
+align-items:flex-start;
+width: 90%;}
+
+#botoneraDeFiltros{display:flex;
+    flex-direction: column;
+}
+
+body section{display:flex;
+flex-direction: row;}
+
+#boton{border-radius: 300px;
+}
+
+.fondo:hover{background-color: green;}
