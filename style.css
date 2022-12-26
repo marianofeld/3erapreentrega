@@ -1,17 +1,47 @@
-#cuadroDeCompras{display:flex;
-flex-wrap: nowrap;
-justify-items: left;
-align-items:flex-start;
-width: 90%;}
+#cuadroDeCompras {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-items: left;
+    align-items: flex-start;
+    width: 90%;
+    margin-right: 1rem;
+}
 
-#botoneraDeFiltros{display:flex;
+#botoneraDeFiltros {
+    display: flex;
     flex-direction: column;
 }
 
-body section{display:flex;
-flex-direction: row;}
-
-#boton{border-radius: 300px;
+body section {
+    display: flex;
+    flex-direction: row;
 }
 
-.fondo:hover{background-color: green;}
+.boton {
+    border-radius: 300px
+}
+
+.fondo:hover {
+    background-color: green;
+}
+
+.fondo2:hover {
+    background-color: red;
+}
+
+#botonVegano,
+#todo,
+#botonCarne {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+#productoDiv {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    height: 8rem;
+}
+
+#cajaDeCarrito{
+    margin-top: 2rem;
+}
