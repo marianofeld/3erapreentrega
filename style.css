@@ -18,7 +18,8 @@ body section {
 }
 
 .boton {
-    border-radius: 300px
+    border-radius: 100px;
+    border-color: brown;
 }
 
 .fondo:hover {
@@ -43,5 +44,5 @@ body section {
 }
 
 #cajaDeCarrito{
-    margin-top: 2rem;
+    margin-top: 20rem;
 }
