@@ -1,21 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Oleo+Script+Swash+Caps&display=swap');
+
 #cuadroDeCompras {
     display: flex;
     flex-wrap: nowrap;
-    justify-items: left;
-    align-items: flex-start;
-    width: 90%;
     margin-right: 1rem;
+    justify-content: space-around
 }
 
 #botoneraDeFiltros {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around
 }
 
-body section {
+/* body section {
     display: flex;
     flex-direction: row;
-}
+} */
 
 .boton {
     border-radius: 100px;
@@ -43,6 +43,25 @@ body section {
     height: 8rem;
 }
 
-#cajaDeCarrito{
-    margin-top: 20rem;
+
+body {
+    background-color: whitesmoke;
 }
+
+img {
+    height: 12rem;
+}
+
+.fondoCard1 {
+    background-color: cadetblue
+}
+
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 8rem;
+    font-weight:bold;
+    text-align: center;
+}
+/* #212121 nav y footer */
+
+/* --appcolor: #BE1F0A; */

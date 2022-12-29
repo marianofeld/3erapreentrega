@@ -1,33 +1,27 @@
-let menu =
-  [
-    { id: 0, nombre: "hamburguesa combo A", precio: 1500, vegana: false, imgUrl: "https://http2.mlstatic.com/D_NQ_NP_738725-MLA44377639664_122020-O.webp" },
-    { id: 1, nombre: "hamburguesa combo B", precio: 1900, vegana: false, imgUrl: "https://http2.mlstatic.com/D_NQ_NP_738725-MLA44377639664_122020-O.webp" },
-    { id: 2, nombre: "hamburguesa veggie", precio: 1850, vegana: true, imgUrl: "https://http2.mlstatic.com/D_NQ_NP_738725-MLA44377639664_122020-O.webp" },
-    { id: 3, nombre: "hamburguesa combo C", precio: 2000, vegana: false, imgUrl: "https://http2.mlstatic.com/D_NQ_NP_738725-MLA44377639664_122020-O.webp" },
-    { id: 4, nombre: "empanada de pollo", precio: 150, vegana: false, imgUrl: "https://http2.mlstatic.com/D_NQ_NP_738725-MLA44377639664_122020-O.webp" },
-    { id: 5, nombre: "empanada de verdura", precio: 150, vegana: true, imgUrl: "https://http2.mlstatic.com/D_NQ_NP_738725-MLA44377639664_122020-O.webp" }
-  ]
+let menu = [
+  { id: 0, nombre: "hamburguesa combo A", precio: 1500, vegana: false, imgUrl: "https://broasteryasadochia.com/wp-content/uploads/2020/03/Desayunos9Am_-58.jpg" },
+  { id: 1, nombre: "hamburguesa combo B", precio: 1900, vegana: false, imgUrl: "https://rapiandres.com/wp-content/uploads/2020/04/IMG_8295-Editar.jpg" },
+  { id: 2, nombre: "hamburguesa veggie", precio: 1850, vegana: true, imgUrl: "https://suculenta.com.ar/wp-content/uploads/2020/06/HAMBURGUESA-VEGGIE-1-6.jpg" },
+  { id: 3, nombre: "hamburguesa combo C", precio: 2000, vegana: false, imgUrl: "https://caracoltv.brightspotcdn.com/dims4/default/8742358/2147483647/strip/true/crop/1000x716+0+0/resize/1000x716!/quality/90/?url=https%3A%2F%2Fcaracol-brightspot.s3-us-west-2.amazonaws.com%2Fassets%2Flakalle%2Fhamburguesa_con_papas_pixabay.jpg" },
+  { id: 4, nombre: "empanada de pollo", precio: 150, vegana: false, imgUrl: "http://alicante.com.ar/uploads/recetas/263_receta.jpg" },
+  { id: 5, nombre: "empanada de verdura", precio: 150, vegana: true, imgUrl: "https://cdn.recetips.com/pic/360/recetas_33a1725b1c0a020a66fd344bbaa49b23.jpg" }
+]
 
 let div = document.getElementById("cuadroDeCompras")
 
 function mostrar(alimento) {
   div.innerHTML = " "
   for (let index = 0; index < alimento.length; index++) {
-    div.innerHTML +=
-
-      `
-<div class="row row-cols-1 row-cols-sm-1 g-3" id="productoDiv">
-<div class="col">
-  <div class="card">
-    <img src="${alimento[index].imgUrl}" class="card-img-top" alt="card-grid-image">
-    <div class="card-body">
-      <h5 class="card-title">${alimento[index].nombre}</h5>
-      <p class="card-text">${alimento[index].precio}</p>
+    div.innerHTML += `
+    <div class="card fondoCard1" style="width: 18rem;">
+      <img class="card-img-top" src="${alimento[index].imgUrl}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${alimento[index].nombre}</h5>
+        <p class="card-text">Su precio es: ${alimento[index].precio}</p>
+        <button type="button" id="${alimento[index].id}" class="btn btn-primary boton">Añadir al pedido</button>
+      </div>
     </div>
-    <button type="button" id="${alimento[index].id}" class="btn btn-primary boton">Añadir al pedido</button>
-  </div>
-</div>
-`
+    `
   }
   let botones = document.getElementsByClassName('boton')
 
@@ -92,13 +86,13 @@ function mostrarCarrito() {
   )
   cajaDeCarrito.innerHTML += `<br>Total a pagar $${total} 
  <br>`
- 
+
 }
 
 if (localStorage.getItem("carrito")) {
   carrito = JSON.parse(localStorage.getItem("carrito"))
   mostrarCarrito()
-}else {carrito = []}
+} else { carrito = [] }
 
 let botonComprar = document.getElementById("botonComprar")
 botonComprar.addEventListener("click", comprar)
@@ -106,5 +100,5 @@ function comprar() {
 
   localStorage.clear()
   carrito = []
-  cajaDeCarrito.innerHTML = `el total a pagar es ${total}`
+  cajaDeCarrito.innerHTML = ``
 }
