@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="https://es.seaicons.com/wp-content/uploads/2015/10/Hamburger-icon.png"
         type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>El isleno</title>
 </head>
 
@@ -24,12 +25,13 @@
 
     <h1>El Isleno</h1>
     <section>
-        <article id="botoneraDeFiltros">
-
-            <button type="button" id="botonVegano" class="btn btn-primary">Vegano</button>
-            <button type="button" id="botonCarne" class="btn btn-primary">Carne</button>
-            <button type="button" id="todo" class="btn btn-primary">Todo</button>
-
+        <article class="filtros">
+            <h2>Filtrar por:</h2>
+            <div id="botoneraDeFiltros">
+                <button type="button" id="botonVegano" class="btn">Vegano</button>
+                <button type="button" id="botonCarne" class="btn">Carne</button>
+                <button type="button" id="todo" class="btn">Todo</button>
+            </div>
         </article>
         <article id="cuadroDeCompras">
         </article>
@@ -45,17 +47,21 @@
 
     <footer>
         <div>
-        <a  href="https://www.instagram.com/islenoburgers/">
-            <img class="imgFooter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1200px-Instagram-Icon.png"
-                alt="">
-        </a>
-        <a href="https://web.whatsapp.com/">
-            <img class="imgFooter" src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
-                alt="">
-        </a>
+            <a href="https://www.instagram.com/islenoburgers/">
+                <img class="imgFooter"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1200px-Instagram-Icon.png"
+                    alt="">
+            </a>
+            <a href="https://web.whatsapp.com/">
+                <img class="imgFooter"
+                    src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
+                    alt="">
+            </a>
         </div>
         <p class="pFooter">El Isleno</p>
     </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./terceraentrega.js"></script>
 </body>
 

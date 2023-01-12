@@ -1,24 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Oleo+Script+Swash+Caps&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Oleo+Script+Swash+Caps&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 #cuadroDeCompras {
     display: flex;
     flex-wrap: wrap;
     margin-right: 1rem;
     justify-content: space-around;
-    text-shadow: 0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 0.5px black; 
-   
+    text-shadow: 0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 0.5px black;
+
 }
 
 #botoneraDeFiltros {
     display: flex;
+    align-items: left;
     justify-content: space-around
 }
-
-/* body section {
-    display: flex;
-    flex-direction: row;
-} */
 
 .boton {
     border-radius: 100px;
@@ -32,18 +28,26 @@
 }
 
 .fondo:hover {
-    background-color: yellowgreen
+    background-color: yellowgreen;
 }
 
 .fondo2:hover {
     background-color: red;
 }
 
+#todo:hover {
+    background-color: #3d3d3d;
+    color: coral
+}
+
 #botonVegano,
 #todo,
 #botonCarne {
+    color: black;
     margin-bottom: 1rem;
     margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 #productoDiv {
@@ -81,7 +85,7 @@ img {
 }
 
 h1 {
-    text-shadow: 2px 0 black, 0 2px black, 2px 0 black, 0 2px black; 
+    text-shadow: 2px 0 black, 0 2px black, 2px 0 black, 0 2px black;
     font-family: 'Dancing Script', cursive;
     font-size: 8rem;
     font-weight: bold;
@@ -95,7 +99,6 @@ h3 {
     margin-top: 2rem;
     margin-left: 1rem;
     padding-bottom: 1rem;
-
 }
 
 h4 {
@@ -111,7 +114,6 @@ p {
     margin-left: 2.5rem;
     color: #c00353;
     font-weight: bold;
-    
 }
 
 nav,
@@ -124,7 +126,7 @@ footer {
 .fraseahora {
     font-size: 2.5rem;
     color: coral;
-    text-shadow: 2px 0 black, 0 2px black, 2px 0 black, 0 2px black; 
+    text-shadow: 2px 0 black, 0 2px black, 2px 0 black, 0 2px black;
 }
 
 nav div a img {
@@ -146,16 +148,9 @@ nav div a img {
     flex-direction: column;
 }
 
-
-
-/* #212121 nav y footer */
-
-/* --appcolor: #BE1F0A; */
-
 footer {
     display: flex;
     justify-content: space-between;
-
 }
 
 .imgFooter {
@@ -165,7 +160,7 @@ footer {
     margin-left: 5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    border-radius: 80px ;
+    border-radius: 80px;
 }
 
 footer p {
@@ -174,5 +169,17 @@ footer p {
     font-weight: bold;
     margin-right: 2rem;
     text-shadow: 2px 0 black, 0 2px black, 2px 0 black, 0 2px black;
-    
+}
+
+h2 {
+    margin-left: 1rem;
+    font-size: 5rem;
+    font-family: 'Roboto';
+    text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
+    color:#c00353
+
+}
+
+.filtros {
+    width: 20%;
 }
