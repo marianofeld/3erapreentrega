@@ -24,7 +24,6 @@ function miPrograma(menu) {
     }
     let botones = document.getElementsByClassName('boton')
 
-
     for (const boton of botones) {
       boton.addEventListener("click", agregarAlCarrito)
     }
@@ -141,4 +140,13 @@ function miPrograma(menu) {
     cajaDeCarrito.innerHTML = ``
     total = 0
   }
+  let botonCarrito = document.getElementById("botonCarrito")
+  let carritoHTML = document.getElementById("carritoHTML")
+  botonCarrito.addEventListener("click", nuevaFuncion)
+  function nuevaFuncion() {
+    div.innerHTML = ""
+    carritoHTML.classList.add("display")
+  
+  }
+
 }
