@@ -1,4 +1,4 @@
-fetch("./archivo.JSON")
+fetch("./archivo.json")
   .then(response => response.json())
   .then(menu => {
     miPrograma(menu)
@@ -7,8 +7,25 @@ fetch("./archivo.JSON")
 function miPrograma(menu) {
 
   let div = document.getElementById("cuadroDeCompras")
+  let divCompras = document.getElementById("divCompras")
+  let botonCarrito = document.getElementById("botonCarrito")
+  let acaCarrito = document.getElementById("acaCarrito")
+  let botonTodo = document.getElementById("todo")
+  let botones = document.getElementsByClassName('boton')
+  let botonVegano = document.getElementById("botonVegano")
+  let vegano = menu.filter((alimento) => (alimento.vegana == true))
+  let botonCarne = document.getElementById("botonCarne")
+  let carne = menu.filter((alimento) => (alimento.vegana == false))
+  let carrito
+  let cajaDeCarrito = document.getElementById("cajaDeCarrito")
+  let total = 0
+  let botonComprar = document.getElementById("botonComprar")
 
   function mostrar(alimento) {
+    divCompras.classList.add("display2")
+    divCompras.classList.remove("display")
+    acaCarrito.classList.remove("display2")
+    acaCarrito.classList.add("display")
     div.innerHTML = " "
     for (let index = 0; index < alimento.length; index++) {
       div.innerHTML += `
@@ -22,7 +39,6 @@ function miPrograma(menu) {
     </div>
     `
     }
-    let botones = document.getElementsByClassName('boton')
 
     for (const boton of botones) {
       boton.addEventListener("click", agregarAlCarrito)
@@ -32,11 +48,9 @@ function miPrograma(menu) {
   mostrar(menu)
 
   // todo de vegano
-  let botonTodo = document.getElementById("todo")
+
   botonTodo.onclick = () => { mostrar(menu) }
 
-  let botonVegano = document.getElementById("botonVegano")
-  let vegano = menu.filter((alimento) => (alimento.vegana == true))
   botonVegano.onclick = () => { mostrar(vegano) }
   botonVegano.addEventListener("mouseover", function () {
     botonVegano.classList.add("fondo")
@@ -44,9 +58,7 @@ function miPrograma(menu) {
 
   // todo de carne
 
-  let botonCarne = document.getElementById("botonCarne")
-
-  let carne = menu.filter((alimento) => (alimento.vegana == false))
+  
   botonCarne.onclick = () => { mostrar(carne) }
   botonCarne.addEventListener("mouseover", function () {
     botonCarne.classList.add("fondo2")
@@ -54,7 +66,7 @@ function miPrograma(menu) {
 
 
   // carrito
-  let carrito
+ 
 
   function agregarAlCarrito(e) {
 
@@ -86,8 +98,7 @@ function miPrograma(menu) {
     mostrarCarrito()
   }
 
-  let cajaDeCarrito = document.getElementById("cajaDeCarrito")
-  let total = 0
+  
   function mostrarCarrito() {
     cajaDeCarrito.innerHTML = ""
     for (let index = 0; index < carrito.length; index++) {
@@ -102,16 +113,18 @@ function miPrograma(menu) {
  <br>`
 
   }
-
+  
   if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"))
     mostrarCarrito()
   } else { carrito = [] }
 
-  let botonComprar = document.getElementById("botonComprar")
+  
   botonComprar.addEventListener("click", comprar)
   function comprar() {
     if (total != 0) {
+      acaCarrito.classList.add("display")
+      acaCarrito.classList.remove("display2")
       Swal.fire({
         title: 'La compra se ha efectuado con exito.',
         showConfirmButton: false,
@@ -124,6 +137,8 @@ function miPrograma(menu) {
       })
     }
     else if (total == 0) {
+      divCompras.classList.add("display2")
+      divCompras.classList.remove("display")
       Swal.fire({
         title: 'No has añadido nada al carrito',
         showConfirmButton: false,
@@ -140,13 +155,13 @@ function miPrograma(menu) {
     cajaDeCarrito.innerHTML = ``
     total = 0
   }
-  let botonCarrito = document.getElementById("botonCarrito")
-  let carritoHTML = document.getElementById("carritoHTML")
   botonCarrito.addEventListener("click", nuevaFuncion)
   function nuevaFuncion() {
-    div.innerHTML = ""
-    carritoHTML.classList.add("display")
-  
+    acaCarrito.classList.remove("display")
+    acaCarrito.classList.add("display2")
+    divCompras.classList.remove("display2")
+    divCompras.classList.add("display")
+
   }
 
 }
