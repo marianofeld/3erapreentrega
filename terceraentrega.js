@@ -20,20 +20,19 @@ function miPrograma(menu) {
   let cajaDeCarrito = document.getElementById("cajaDeCarrito")
   let total = 0
   let botonComprar = document.getElementById("botonComprar")
+  let body = document.getElementById("body")
 
   function mostrar(alimento) {
-    divCompras.classList.add("display2")
-    divCompras.classList.remove("display")
-    acaCarrito.classList.remove("display2")
-    acaCarrito.classList.add("display")
+    colorDisplay()
+    colorDisplay("display2", "display", "fondoProductos", "fondoCarrito")
     div.innerHTML = " "
     for (let index = 0; index < alimento.length; index++) {
       div.innerHTML += `
-    <div class="card fondoCard1" style="width: 18rem;">
+    <div class="card fondoCard1 tamañoDeCartas">
       <img class="card-img-top" src="${alimento[index].imgUrl}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">${alimento[index].nombre}</h5>
-        <p class="card-text">Su precio es: ${alimento[index].precio}</p>
+        <h5 class="card-title tamaño">${alimento[index].nombre}</h5>
+        <p class="card-text tamaño3">Su precio es: ${alimento[index].precio}</p>
         <button type="button" id="${alimento[index].id}" class="btn btn-primary boton">Añadir al pedido</button>
       </div>
     </div>
@@ -58,7 +57,7 @@ function miPrograma(menu) {
 
   // todo de carne
 
-  
+
   botonCarne.onclick = () => { mostrar(carne) }
   botonCarne.addEventListener("mouseover", function () {
     botonCarne.classList.add("fondo2")
@@ -66,7 +65,7 @@ function miPrograma(menu) {
 
 
   // carrito
- 
+
 
   function agregarAlCarrito(e) {
 
@@ -98,33 +97,31 @@ function miPrograma(menu) {
     mostrarCarrito()
   }
 
-  
+
   function mostrarCarrito() {
     cajaDeCarrito.innerHTML = ""
     for (let index = 0; index < carrito.length; index++) {
       cajaDeCarrito.innerHTML +=
-        `<li>Pediste ${carrito[index].unidades} de ${carrito[index].nombre} y el precio es ${carrito[index].precioTotal}</li> 
+        `<li class="tamaño">Pediste ${carrito[index].unidades} de ${carrito[index].nombre} y el precio es ${carrito[index].precioTotal}</li> 
     <br>`
 
     }
     total = carrito.reduce((acc, valorTotal) => acc + valorTotal.precioTotal, 0
     )
-    cajaDeCarrito.innerHTML += `<br><p>Total a pagar $${total} <p>
- <br>`
+    cajaDeCarrito.innerHTML += `<br><p class="tamaño2">Total a pagar $${total} <p>`
 
   }
-  
+
   if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"))
     mostrarCarrito()
   } else { carrito = [] }
 
-  
+
   botonComprar.addEventListener("click", comprar)
   function comprar() {
     if (total != 0) {
-      acaCarrito.classList.add("display")
-      acaCarrito.classList.remove("display2")
+      colorDisplay("display", "display2", "fondoProductos", "fondoCarrito")
       Swal.fire({
         title: 'La compra se ha efectuado con exito.',
         showConfirmButton: false,
@@ -137,8 +134,7 @@ function miPrograma(menu) {
       })
     }
     else if (total == 0) {
-      divCompras.classList.add("display2")
-      divCompras.classList.remove("display")
+      colorDisplay("display", "display2", "fondoProductos", "fondoCarrito")
       Swal.fire({
         title: 'No has añadido nada al carrito',
         showConfirmButton: false,
@@ -156,12 +152,13 @@ function miPrograma(menu) {
     total = 0
   }
   botonCarrito.addEventListener("click", nuevaFuncion)
-  function nuevaFuncion() {
-    acaCarrito.classList.remove("display")
-    acaCarrito.classList.add("display2")
-    divCompras.classList.remove("display2")
-    divCompras.classList.add("display")
 
+  function colorDisplay(par1, par2, par3, par4) {
+    acaCarrito.classList.add(par1)
+    acaCarrito.classList.remove(par2)
+    divCompras.classList.add(par2)
+    divCompras.classList.remove(par1)
+    body.classList.add(par3)
+    body.classList.remove(par4)
   }
-
 }
