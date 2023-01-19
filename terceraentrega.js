@@ -23,8 +23,7 @@ function miPrograma(menu) {
   let body = document.getElementById("body")
 
   function mostrar(alimento) {
-    colorDisplay()
-    colorDisplay("display2", "display", "fondoProductos", "fondoCarrito")
+    colorDisplay("display","display2","fondoProductos","fondoCarrito")
     div.innerHTML = " "
     for (let index = 0; index < alimento.length; index++) {
       div.innerHTML += `
@@ -121,7 +120,7 @@ function miPrograma(menu) {
   botonComprar.addEventListener("click", comprar)
   function comprar() {
     if (total != 0) {
-      colorDisplay("display", "display2", "fondoProductos", "fondoCarrito")
+      colorDisplay("display","display2","fondoProductos","fondoCarrito")
       Swal.fire({
         title: 'La compra se ha efectuado con exito.',
         showConfirmButton: false,
@@ -134,7 +133,7 @@ function miPrograma(menu) {
       })
     }
     else if (total == 0) {
-      colorDisplay("display", "display2", "fondoProductos", "fondoCarrito")
+      colorDisplay("display","display2","fondoProductos","fondoCarrito")
       Swal.fire({
         title: 'No has añadido nada al carrito',
         showConfirmButton: false,
@@ -152,13 +151,16 @@ function miPrograma(menu) {
     total = 0
   }
   botonCarrito.addEventListener("click", nuevaFuncion)
+  function nuevaFuncion() {
+    colorDisplay("display2","display","fondoCarrito","fondoProductos")
+  }
 
-  function colorDisplay(par1, par2, par3, par4) {
-    acaCarrito.classList.add(par1)
-    acaCarrito.classList.remove(par2)
-    divCompras.classList.add(par2)
-    divCompras.classList.remove(par1)
-    body.classList.add(par3)
-    body.classList.remove(par4)
+  function colorDisplay(par1, par2, par3,par4) {
+    acaCarrito.classList.add(`${par1}`)
+    acaCarrito.classList.remove(`${par2}`)
+    divCompras.classList.add(`${par2}`)
+    divCompras.classList.remove(`${par1}`)
+    body.classList.add(`${par3}`)
+    body.classList.remove(`${par4}`)
   }
 }
